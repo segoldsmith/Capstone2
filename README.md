@@ -21,12 +21,13 @@ Both LightGBM and XGBoost perform better than Random Forest in all evaluation me
 
 LightGBM is able to work with categorical features, without the need for one-hot encoding, so we will try a second LightGBM model, this time without splitting the catigorical features.
 
-# INSERT MODEL METRICS TABLE HERE
+# INSERT MODEL PERFORMACE COMPARISON TABLE HERE
 
 
 ## Documention
 ### Conclusion:
 The LightGBM model using categorical featrues (without one-hot encoding is the best model to use of the model's tested. That being said, there is much room for improvement. Currently, this model only explains approximately 16% of the variance in the data.
+# INSERT MODEL METRIC FILE HERE
 
 ### Recomendations:
 1. Airlines can use this model to determine in advance if there will likely be a delay in a flight, and estimate how long the delay will be. This in turn can be used to improve customer service by being able to notify passengers more in advance of flight delays. However, airlines should note that the MAE is 12.8 minutes, so they should take this into account when deciding how to post delay notifications. We recommend rounding this number to 15 minutes, so airlines can inform passangers that the estimated delayed length posted may be off by approximatley 15 minutes.
