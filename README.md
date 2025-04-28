@@ -1,4 +1,4 @@
-# Capstone2: Predciting Flight Takeoff Times
+# Capstone2: Predciting Flight Takeoff Time Delays
 Flight delays are a significant issue for airline companies, affecting operational efficiency, customer satisfaction, and financial performance. Accurately predicting whether a flight will be delayed, and by how long, can enable airlines to proactively manage operations and improve the passenger experience. Knowing that a flight is likely to be late, airlines can establish policies to immediately assuage customer complaints. The goal of this project is to create a model that predicts the difference in scheduled and actual takeoff times of flights.
 
 ## Data Collection and Cleaning:
@@ -12,7 +12,7 @@ INSERT HYPERLINK
 INSERT HYPERLINK
 
 ## Modeling
-INSERT HYPERLINK
+INSERT HYPERLINK  
 We created and tested a variety of models, including K Nearest Neighbors, Random Forest, XGBoost, and two LightGBM. With a dataset this large, we created a subsample train and test set and ran each model though Bayesian Optimization to get the best hyperparameters for each model. The initial subsample was 20% or .2 of the full data, which we used for the XGBoost model and the two LightGBM models, however this sample was too large for the K Nearest Neighbors and Random Forest models, so we had to use a smaller sample size of .02 for them.
 
 # INSERT MODEL TRAINING/TEST Speed HERE
