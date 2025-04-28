@@ -2,7 +2,7 @@
 Flight delays are a significant issue for airline companies, affecting operational efficiency, customer satisfaction, and financial performance. Accurately predicting whether a flight will be delayed, and by how long, can enable airlines to proactively manage operations and improve the passenger experience. Knowing that a flight is likely to be late, airlines can establish policies to immediately assuage customer complaints. The goal of this project is to create a model that predicts the difference in scheduled and actual takeoff times of flights.
 
 ## Data Collection and Cleaning:
-INSERT HYPERLINK
+INSERT HYPERLINK  
 We used a Data set of commercial domestic flights in the United States of America for the year 2018, taken from the United States’s Department of Transportation’s Bureau of Transportation Statistics. We also used the a data set of Airline Carrier names and initial, and airport names and codes. There were various issues with the main dataset that needed to be addressed prior to EDA. We removed columns that were not needed for our specific problem, renamed columns for clarity, converted certain columns to their appropriate data types (such as numeric columns to datatime columns), and merged the airline carrier names and airport names datasets for clarity. We then checked the dataset for missing and incorrect data, and either fixed or removed these rows
 
 ## Exploratory Data Analysis
