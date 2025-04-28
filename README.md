@@ -14,8 +14,11 @@ We created and tested a variety of models, including K Nearest Neighbors, Random
 # INSERT MODEL TRAINING/TEST Speed HERE
 
 The KNN model is too slow at predicting on a dataset this large. It also scored the worst on all evaluation metrics, so not a good model to use in our case.
+
 Random Forest model performs better than the KNN model on its metrics, but is slow on training, so may not be the best model to use.
+
 Both LightGBM and XGBoost perform better than Random Forest in all evaluation metrics. They also have a much faster training speed compared to the Random Forest, so these models would be better than either of the two previous models.
+
 LightGBM is able to work with categorical features, without the need for one-hot encoding, so we will try a second LightGBM model, this time without splitting the catigorical features.
 
 # INSERT MODEL METRICS TABLE HERE
