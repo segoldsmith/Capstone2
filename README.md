@@ -2,36 +2,29 @@
 Flight delays are a significant issue for airline companies, affecting operational efficiency, customer satisfaction, and financial performance. Accurately predicting whether a flight will be delayed, and by how long, can enable airlines to proactively manage operations and improve the passenger experience. Knowing that a flight is likely to be late, airlines can establish policies to immediately assuage customer complaints. The goal of this project is to create a model that predicts the difference in scheduled and actual takeoff times of flights.
 
 ## Data Collection and Cleaning:
-INSERT HYPERLINK  
-We used a Data set of commercial domestic flights in the United States of America for the year 2018, taken from the United States’s Department of Transportation’s Bureau of Transportation Statistics. We also used the a data set of Airline Carrier names and initial, and airport names and codes. There were various issues with the main dataset that needed to be addressed prior to EDA. We removed columns that were not needed for our specific problem, renamed columns for clarity, converted certain columns to their appropriate data types (such as numeric columns to datatime columns), and merged the airline carrier names and airport names datasets for clarity. We then checked the dataset for missing and incorrect data, and either fixed or removed these rows
+We used a Data set of commercial domestic flights in the United States of America for the year 2018, taken from the United States’s Department of Transportation’s Bureau of Transportation Statistics. We also used the a data set of Airline Carrier names and initial, and airport names and codes. There were various issues with the main dataset that needed to be addressed prior to EDA such as removing columns that were not needed for our specific problem, renamed columns for clarity, converted certain columns to their appropriate data types (such as numeric columns to datatime columns), and merged the airline carrier names and airport names datasets for clarity. We then checked the dataset for missing and incorrect data, and either fixed or removed these rows. We started with a data frame of 7,213,446 rows and 28 columns. After cleaning, the dataframe was 7,191,323 rows and 25 columns
 
 ## Exploratory Data Analysis
-INSERT HYPERLINK
+We removed additional columns that were not neded, or had too few entries to be of use. We then graphs the numbers of delayed/cancelled flights and flights that left on time across multiple variables including Airline, Location, Month, Time of Day, and Day of the week. Finally, we calculated Chi-Square Statistics and Cramer's V for various featrues.
 
 ## Pre-processing
-INSERT HYPERLINK
+We removed uneeded columns, which included temporary columns created in EDA for calculations, and columns that had the same information in different formats. We then created dummy variables, removed outliers, created training and testing sets, and used a log transformer to scale and standardize the data 
 
 ## Modeling
-INSERT HYPERLINK  
-We created and tested a variety of models, including K Nearest Neighbors, Random Forest, XGBoost, and two LightGBM. With a dataset this large, we created a subsample train and test set and ran each model though Bayesian Optimization to get the best hyperparameters for each model. The initial subsample was 20% or .2 of the full data, which we used for the XGBoost model and the two LightGBM models, however this sample was too large for the K Nearest Neighbors and Random Forest models, so we had to use a smaller sample size of .02 for them.
+We created and tested a variety of models, including K Nearest Neighbors, Random Forest, XGBoost, and two LightGBM. With a dataset this large, we created a subsample train and test set and ran each model though Bayesian Optimization to get the best hyperparameters for each model. 
 
-# INSERT MODEL TRAINING/TEST Speed HERE
+The KNN model was too slow at predicting on a dataset this large. It also scored the worst on all evaluation metrics, so not a good model to use in our case.
 
-The KNN model is too slow at predicting on a dataset this large. It also scored the worst on all evaluation metrics, so not a good model to use in our case.
+The Random Forest model performed better than the KNN model on its metrics, but was slow on training, so may not be the best model to use.
 
-Random Forest model performs better than the KNN model on its metrics, but is slow on training, so may not be the best model to use.
+Both LightGBM and XGBoost performed better than the Random Forest in all evaluation metrics. They also had a much faster training speed compared to the Random Forest, so these models would be better than either of the two previous models.
 
-Both LightGBM and XGBoost perform better than Random Forest in all evaluation metrics. They also have a much faster training speed compared to the Random Forest, so these models would be better than either of the two previous models.
-
-LightGBM is able to work with categorical features, without the need for one-hot encoding, so we will try a second LightGBM model, this time without splitting the catigorical features.
-
-# INSERT MODEL PERFORMACE COMPARISON TABLE HERE
+LightGBM is able to work with categorical features, without the need for one-hot encoding, so we tried a second LightGBM model, this keeping the categorical data intact, without using one-hot encoding. We also using sin/cos cyclical encoding on the month and time to address rollover from December to January and 23:00 to 00:00 respectively.
 
 
 ## Documention
-### Conclusion:
 The LightGBM model using categorical featrues (without one-hot encoding is the best model to use of the model's tested. That being said, there is much room for improvement. Currently, this model only explains approximately 16% of the variance in the data.
-# INSERT MODEL METRIC FILE HERE
+
 
 ### Recomendations:
 1. Airlines can use this model to determine in advance if there will likely be a delay in a flight, and estimate how long the delay will be. This in turn can be used to improve customer service by being able to notify passengers more in advance of flight delays. However, airlines should note that the MAE is 12.8 minutes, so they should take this into account when deciding how to post delay notifications. We recommend rounding this number to 15 minutes, so airlines can inform passangers that the estimated delayed length posted may be off by approximatley 15 minutes.
