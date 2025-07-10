@@ -1,4 +1,4 @@
-# Capstone2: Predciting Flight Takeoff Time Delays
+# Capstone2: Predicting Flight Takeoff Time Delays
 Flight delays are a significant issue for airline companies, affecting operational efficiency, customer satisfaction, and financial performance. Accurately predicting whether a flight will be delayed, and by how long, can enable airlines to proactively manage operations and improve the passenger experience. Knowing that a flight is likely to be late, airlines can establish policies to immediately assuage customer complaints. The goal of this project is to create a model that predicts the difference in scheduled and actual takeoff times of flights.
 
 ## Data Collection and Cleaning:
